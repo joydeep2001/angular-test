@@ -1,0 +1,7 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">    
+    <label>Name: </label>
+    <input type="text" formControlName="name">
+    <label>Job: </label>
+    <input type="text" formControlName="job">
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+</form>

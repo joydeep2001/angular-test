@@ -1,0 +1,56 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="firstname">Name </label>
+    <input type="text" id="firstname" name="firstname" formControlName="firstname">
+  </p>
+  <!-- <div
+      *ngIf="!controls.firstname.valid && (controls.firstname.dirty || controls.firstname.touched)">
+      <div [hidden]="!controls.firstname.errors.required">
+        First Name is required
+      </div>
+    </div> -->
+  <p>
+    <label for="phone">Phone </label>
+    <input type="number" id="phone" name="phone" formControlName="phone">
+  </p>
+  <p>
+    <label for="email">Email </label>
+    <input type="text" id="email" name="email" formControlName="email">
+  </p>
+  <p>
+    <label>Geneder </label>
+    <label for="gender-m">
+      <input type="radio" value="male" id="gender-m" name="gender" formControlName="gender"> Male
+    </label>
+    <label for="gender-f">
+      <input type="radio" value="female" id="gender-f" name="gender" formControlName="gender"> Female
+    </label>
+  </p>
+  <p>
+    <label for="country">country </label>
+    <select id="country" name="country" formControlName="country">
+      <option [ngValue]="c.id" *ngFor="let c of countryList">
+        {{c.name}}
+      </option>
+    </select>
+  </p>
+  
+  <div formArrayName="family">
+    
+    <div *ngFor="let member of person.controls; let i=index">
+        <div [formGroupName]="i">
+            type: 
+            <input type="text" formControlName="type">
+            age: 
+            <input type="text" formControlName="age">
+            <button (click)="removePerson(i)">Remove</button>
+        </div>
+    </div>
+    <p>
+        <button type="button" (click)="addPerson()">Add</button>
+      </p>
+  </div>
+  <p>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </p>
+</form>
