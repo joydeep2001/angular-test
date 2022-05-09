@@ -3,12 +3,12 @@
     <label for="firstname">Name </label>
     <input type="text" id="firstname" name="firstname" formControlName="firstname">
   </p>
-  <!-- <div
-      *ngIf="!controls.firstname.valid && (controls.firstname.dirty || controls.firstname.touched)">
-      <div [hidden]="!controls.firstname.errors.required">
+  <div
+      *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
+      <div [hidden]="!firstname.errors?.['required']">
         First Name is required
       </div>
-    </div> -->
+    </div>
   <p>
     <label for="phone">Phone </label>
     <input type="number" id="phone" name="phone" formControlName="phone">
@@ -51,6 +51,7 @@
       </p>
   </div>
   <p>
-    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    <button type="submit">Submit</button>
+    <!-- <button type="submit" [disabled]="!contactForm.valid">Submit</button> -->
   </p>
 </form>

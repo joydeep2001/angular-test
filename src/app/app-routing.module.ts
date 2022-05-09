@@ -4,6 +4,7 @@ import { GetServiceComponent } from './get-service/get-service.component';
 import { PostServiceComponent } from './post-service/post-service.component';
 import { MyformComponent } from './myform/myform.component';
 import { GetService } from './get.service';
+import { CustomFormComponent } from './custom-form/custom-form.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'postservice', component: PostServiceComponent
+  },
+  {
+    path: 'customform', component: CustomFormComponent
   }
 ];
 

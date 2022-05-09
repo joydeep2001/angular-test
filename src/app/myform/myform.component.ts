@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-myform',
@@ -33,10 +33,16 @@ export class MyformComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.contactForm.value);
+    if(this.contactForm.valid)
+      console.log(this.contactForm.value);
+    else  
+      console.log("Invalid submission");
   }
   get person() : FormArray {
     return this.contactForm.get("family") as FormArray
+  }
+  get firstname() : FormControl {
+    return this.contactForm.get("firstname") as FormControl;
   }
   newPerson(): FormGroup {
     return this.formBuilder.group({
@@ -45,7 +51,6 @@ export class MyformComponent implements OnInit {
     })
   }
   addPerson(): void {
-    
     this.person.push(this.newPerson());
   }
   removePerson(i: number) {
