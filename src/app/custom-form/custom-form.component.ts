@@ -37,6 +37,7 @@ export class CustomFormComponent implements OnInit {
    }
    newItem(val: string): FormGroup {
     return this.formBuilder.group({
+      status: false,
       amount: [val, Validators.required]
     })
    }

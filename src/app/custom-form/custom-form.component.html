@@ -4,13 +4,16 @@
     <input type="text" id="name" formControlName="name">
     <div formArrayName="items">
         <div *ngFor="let item of itemList;let i=index">
-            <label [for]="item.id">{{item.name}}
-                <input [id]="item.id" type="checkbox" (change)="changeStatus(i)" [checked]="item.status" (onchange)="changeStatus(i)">
-            </label>
-            <div *ngIf="item.status">
-                <label>Amount</label>
-                <input type="text" (change)="updateAmount($event, i)" >
+            <div [formGroupName]="i">
+                <label [for]="item.id">{{item.name}}
+                    <input [id]="item.id" type="checkbox" (change)="changeStatus(i)" [checked]="item.status" formControlName="status" (onchange)="changeStatus(i)">
+                </label>
+                <div *ngIf="item.status">
+                    <label>Amount</label>
+                    <input type="text" (change)="updateAmount($event, i)" formControlName="amount">
+                </div>
             </div>
+            
         </div>
       
     </div>
