@@ -1,0 +1,31 @@
+
+<button id="get-btn" (click)="getData()">
+    Get Data
+</button>
+<div id="loader" *ngIf="loading == true; else elseBlock">
+    Loading...
+</div>
+<ng-template #elseBlock>
+    <div *ngIf="userData == null; else elseBlock2">
+        No Data Fetched!
+    </div>
+    <ng-template #elseBlock2> 
+        <table>
+            <thead>
+                <th>#id</th><th>Email</th><th>Name</th><th>Avtar</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of userData">
+                    <td>{{row.id}}</td>
+                    <td>{{row.enail}}</td>
+                    <td>{{row.first_name}} {{row.last_name}}</td>
+                    <td><app-custom-image image="{{row.avatar}}"></app-custom-image>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>    
+</ng-template>
+<!-- <table>
+    <tr *ngif="userData != null"></tr>
+    <tr></tr>
+</table> -->

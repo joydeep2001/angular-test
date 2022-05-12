@@ -12,6 +12,8 @@ import { GetService } from './get.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './post.service';
 import { CustomFormComponent } from './custom-form/custom-form.component';
+import { CustomImageComponent } from './custom-image/custom-image.component';
+
 
 
 
@@ -22,7 +24,9 @@ import { CustomFormComponent } from './custom-form/custom-form.component';
     MyserviceComponent,
     GetServiceComponent,
     PostServiceComponent,
-    CustomFormComponent
+    CustomFormComponent,
+    CustomImageComponent,
+    
     
   ],
   imports: [

@@ -26,6 +26,7 @@ export class CustomFormComponent implements OnInit {
    get items() : FormArray {
      return this.customForm.get("items")  as FormArray;
    }
+   
    addItems() {
      this.itemList.forEach(item => {
       this.items.push(this.newItem(item.name));

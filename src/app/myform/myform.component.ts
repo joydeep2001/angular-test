@@ -69,13 +69,13 @@ export class country {
   }
 
   }
-  export class Person {
-    type: string;
-    age: number
+//   export class Person {
+//     type: string;
+//     age: number
 
-    constructor(type: string, age: number) {
-      this.type = type;
-      this.age = age;
-    }
+//     constructor(type: string, age: number) {
+//       this.type = type;
+//       this.age = age;
+//     }
 
-}
+// }
